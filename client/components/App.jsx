@@ -1,21 +1,15 @@
 import React from 'react'
-
-import Nav from './Nav'
-import Home from './Home'
+import { Route, Redirect } from 'react-router-dom'
+import StoryBoard from './StoryBoard'
 
 function App () {
   return (
-    <>
-      <div className='title'>
-        <img src='/images/color_earth.gif' />
-        <h1>Navigating the worldwide routes</h1>
-      </div>
-      {/* This 'main' div is only for styling (so we can use flexbox) */}
-      <div className='main'>
-        <Nav />
-        <Home />
-      </div>
-    </>
+    <div className="container">
+      <Route exact path="/">
+        <Redirect to="/1" />
+      </Route>
+      <Route path="/:id" component={StoryBoard} />
+    </div>
   )
 }
 
